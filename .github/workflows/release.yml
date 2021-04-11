@@ -23,6 +23,6 @@ jobs:
       - name: Install Dependencies
         run: npm ci
       - name: Create the Release
-        uses: chrisgavin/build-javascript-action-action@ab52122f56cc18c78c91f852e59e6681b4464ef9
+        uses: chrisgavin/build-javascript-action-action@ff62431278b636015b2c759ff9ac2e621c7a3e99
         with:
           tag: ${{ github.event.inputs.tag }}
