@@ -1,15 +1,9 @@
-name: NodeJS Prepare Action
+name: Build JavaScript Action Action
 description: A GitHub Action for setting up useful stuff in NodeJS workflows.
 runs:
-  using: composite
-  steps:
-    - id: prepare-nodejs
-      uses: ./subactions/prepare/
-      with:
-        node-version-path: ${{ inputs.node-version-path }}
-    - uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
-      with:
-        node-version: ${{ steps.prepare-nodejs.outputs.node-version }}
+  using: node12
+  main: ./bootstrap-shim.js
+  post: ./build/post.js
 inputs:
   node-version-path:
     description: The path to the `.node-version` file.
