@@ -15,7 +15,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
       - name: Prepare NodeJS
-        id: prepare-nodejs
         uses: ./
       - name: Install Dependencies
         run: npm ci
