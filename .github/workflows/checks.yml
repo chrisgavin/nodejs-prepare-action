@@ -17,10 +17,6 @@ jobs:
       - name: Prepare NodeJS
         id: prepare-nodejs
         uses: ./
-      - name: Setup NodeJS
-        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
-        with:
-          node-version: ${{ steps.prepare-nodejs.outputs.node-version }}
       - name: Install Dependencies
         run: npm ci
       - name: Build

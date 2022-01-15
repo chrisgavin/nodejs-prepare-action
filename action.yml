@@ -1,9 +1,19 @@
-name: Build JavaScript Action Action
+name: NodeJS Prepare Action
 description: A GitHub Action for setting up useful stuff in NodeJS workflows.
 runs:
-  using: node12
-  main: ./bootstrap-shim.js
-  post: ./build/post.js
+  using: composite
+  steps:
+    # We cannot reference $GITHUB_ACTION_PATH in the path to other actions, but we can symlink it to a known location and then reference that location.
+    # This ensures that the path to the action stays the same even if the runner starts storing actions in different locations or the action is being run from a fork with a different name.
+    - shell: sh
+      run: ln --symbolic "$GITHUB_ACTION_PATH" "./../_nodejs-prepare-action"
+    - id: prepare-nodejs
+      uses: ./../_nodejs-prepare-action/subactions/prepare/
+      with:
+        node-version-path: ${{ inputs.node-version-path }}
+    - uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
+      with:
+        node-version: ${{ steps.prepare-nodejs.outputs.node-version }}
 inputs:
   node-version-path:
     description: The path to the `.node-version` file.
