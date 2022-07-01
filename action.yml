@@ -11,7 +11,7 @@ runs:
       uses: ./../_nodejs-prepare-action/subactions/prepare/
       with:
         node-version-path: ${{ inputs.node-version-path }}
-    - uses: actions/setup-node@5b52f097d36d4b0b2f94ed6de710023fbb8b2236
+    - uses: actions/setup-node@eeb10cff27034e7acf239c5d29f62154018672fd
       with:
         node-version: ${{ steps.prepare-nodejs.outputs.node-version }}
 inputs:
