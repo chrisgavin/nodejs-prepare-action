@@ -7,7 +7,7 @@ class TestInputs implements inputs.Inputs {
 
 describe("test getNodeVersion(...)", () => {
 	it("should return the correct NodeJS version", async () => {
-		spyOn(inputs, "get").and.returnValue(new TestInputs());
+		jest.spyOn(inputs, "get").mockReturnValue(new TestInputs());
 		await nodeVersion.getNodeVersion();
 		expect(await nodeVersion.getNodeVersion()).toEqual("12.21.0");
 	});
