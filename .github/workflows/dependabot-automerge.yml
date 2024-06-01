@@ -3,4 +3,4 @@ on:
 
 jobs:
   dependabot-automerge:
-    uses: chrisgavin/workflows/.github/workflows/dependabot-automerge.yaml@f8b2a5f6c95827e56f32c7d9e36ae523ef2acf7d
+    uses: chrisgavin/workflows/.github/workflows/dependabot-automerge.yaml@1c3c5e2aeb1e73edf3e499ddb2faa518484d4d4c
