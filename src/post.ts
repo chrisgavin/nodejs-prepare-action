@@ -1,6 +1,6 @@
 import * as core from "@actions/core";
-import * as cache from "./cache";
-import * as nodeVersion from "./nodeVersion";
+import * as cache from "./cache.js";
+import * as nodeVersion from "./nodeVersion.js";
 import sourceMapSupport from "source-map-support";
 
 async function main() {
