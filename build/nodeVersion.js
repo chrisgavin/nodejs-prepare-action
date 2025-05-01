@@ -1,0 +1,7 @@
+import * as fs from "fs";
+import * as inputs from "./inputs.js";
+export async function getNodeVersion() {
+    const contents = await fs.promises.readFile(inputs.get()["node-version-path"], "utf8");
+    return contents.trim();
+}
+//# sourceMappingURL=nodeVersion.js.map
